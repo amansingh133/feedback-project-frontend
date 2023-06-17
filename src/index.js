@@ -1,17 +1,31 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { Route, Routes, BrowserRouter } from "react-router-dom";
+import AllCourses from "./components/AllCourses";
+import IndividualCourse from "./components/IndividualCourse";
+import "bootstrap/dist/css/bootstrap.min.css";
+import LoginStudent from "./components/LoginStudent";
+import SignupStudent from "./components/SignUpStudent";
+import { store } from "./redux/store";
+import { Provider } from "react-redux";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<AllCourses />} />
+          <Route path="/login" element={<LoginStudent />} />
+          <Route path="/signup" element={<SignupStudent />} />
+          <Route path="/course/:id" element={<IndividualCourse />} />
+        </Routes>
+      </BrowserRouter>
+    </Provider>
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// 1. Course List
+// 2. Individual Course Page
+// 3. Write a feedback form
+// 4. Submission form

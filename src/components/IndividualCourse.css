@@ -1,0 +1,15 @@
+.courseDetails {
+  display: flex;
+  justify-content: space-around;
+}
+
+.courseDetails img {
+  margin-right: 5px;
+  width: 50%;
+}
+
+.text-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
